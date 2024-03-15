@@ -21,7 +21,7 @@
   </div>
 
   <script>
-    document.getElementById('wifiForm').addEventListener('submit', function(event) {
+    document.getElementById('wifiForm').addEventListener('submit', async function(event) {
       event.preventDefault();
       const formData = new FormData(this);
       const object = {};
@@ -30,30 +30,26 @@
       });
       const json = JSON.stringify(object);
 
-      // Replace 'YOUR_APP_SCRIPT_URL' with the actual URL of your Google Apps Script
-      fetch('https://script.google.com/macros/s/AKfycbza0SzCzHGkzdWAU2A3xQPo2y3IZIG-AMf-xWRN0Y2NBZ5pV2jJDXglSlIK2pEkRsDx/exec', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
-        },
-        body: json
-      })
-      .then(response => {
+      try {
+        const response = await fetch('https://script.google.com/macros/s/AKfycbza0SzCzHGkzdWAU2A3xQPo2y3IZIG-AMf-xWRN0Y2NBZ5pV2jJDXglSlIK2pEkRsDx/exec', { // Thay đổi URL tương ứng với máy chủ của bạn
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: json
+        });
+        
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.text();
-      })
-      .then(data => {
+        
+        const data = await response.text();
         alert('Data submitted successfully!');
         console.log(data);
-      })
-      .catch(error => {
+      } catch (error) {
         console.error('There was an error!', error);
-      });
+        alert('Error submitting data! Please try again.'+ error);
+      }
     });
   </script>
 </body>
