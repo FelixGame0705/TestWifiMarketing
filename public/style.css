@@ -1,0 +1,66 @@
+body {
+    background-image: url('/TestWifiMarketing/images/DSC0456-1-1024x686.jpg'); /* Thay đường dẫn với đường dẫn tới hình ảnh của bạn */
+    background-size: cover; /* Đảm bảo hình nền phủ hết kích thước của trang */
+    background-position: center; /* Căn chỉnh hình ảnh nền vào giữa */
+    background-repeat: no-repeat; /* Không lặp lại hình nền */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.form-container {
+    background-color: #ffffff; /* Màu nền trắng */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
+    width: 100%; /* Độ rộng của form container */
+    max-width: 400px; /* Độ rộng tối đa của form container */
+}
+
+.title {
+    text-align: center;
+    color: #333333; /* Màu chữ đen */
+}
+
+form {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 5px;
+    color: #000000; /* Màu chữ xám */
+}
+
+input, button {
+    width: calc(100%); /* Chiều rộng của cả input và button (22px là tổng padding và border) */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc; /* Viền input */
+    border-radius: 4px;
+    box-sizing: border-box; /* Đảm bảo kích thước tính cả padding và border */
+}
+
+button {
+    width: 100%;
+    background-color: #007bff;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3; /* Màu nền button xanh nhạt khi hover */
+}

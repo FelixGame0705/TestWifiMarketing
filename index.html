@@ -4,53 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WiFi Marketing</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="public/style.css">
 </head>
 <body>
   <div class="container">
     <h1>WiFi Marketing</h1>
     <form id="wifiForm">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required><br>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required><br>
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required><br>
-      <button type="submit">Submit</button>
+      <div class="nor">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+      </div>
+      
+      <div class="nor">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+      </div>
+      
+      <div class="nor">
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required><br>
+      <div class="nor"><button type="submit" class="submit-button">Submit</button>
+      
     </form>
   </div>
 
-  <script>
-    document.getElementById('wifiForm').addEventListener('submit', async function(event) {
-      event.preventDefault();
-      const formData = new FormData(this);
-      const object = {};
-      formData.forEach(function(value, key){
-          object[key] = value;
-      });
-      const json = JSON.stringify(object);
-
-      try {
-        const response = await fetch('/submit', { // Thay đổi URL tương ứng với máy chủ của bạn
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: json
-        });
-        
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        
-        const data = await response.text();
-        alert('Data submitted successfully!');
-        console.log(data);
-      } catch (error) {
-        console.error('There was an error!', error);
-        alert('Error submitting data! Please try again.'+ error);
-      }
-    });
-  </script>
+  <script src="public/script.js"></script>
 </body>
 </html>
