@@ -34,7 +34,10 @@
       fetch('https://script.google.com/macros/s/AKfycbza0SzCzHGkzdWAU2A3xQPo2y3IZIG-AMf-xWRN0Y2NBZ5pV2jJDXglSlIK2pEkRsDx/exec', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With'
         },
         body: json
       })
